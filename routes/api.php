@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::group(['prefix' => '/places'],function(){
+
+    Route::get('/search','PlacesController@search');
+    Route::get("/details/{place_id}",'PlacesController@details');
+    
 });
